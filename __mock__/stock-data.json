@@ -1,0 +1,6 @@
+[
+    { "month": "Jan", "stockIn": 400, "stockOut": 240 },
+    { "month": "Feb", "stockIn": 300, "stockOut": 139 },
+    { "month": "Mar", "stockIn": 200, "stockOut": 380 },
+    { "month": "Apr", "stockIn": 278, "stockOut": 390 }
+]

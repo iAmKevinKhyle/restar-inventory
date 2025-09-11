@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "user": "John Doe",
+    "action": "Added stock: Laptop (Qty: 10)",
+    "date": "2025-09-09 10:30"
+  },
+  {
+    "id": 2,
+    "user": "Jane Smith",
+    "action": "Deleted stock: Mouse (Qty: 3)",
+    "date": "2025-09-09 09:45"
+  },
+  {
+    "id": 3,
+    "user": "Admin",
+    "action": "Edited product details: Monitor",
+    "date": "2025-09-08 16:20"
+  },
+  {
+    "id": 4,
+    "user": "John Doe",
+    "action": "Added stock: Keyboard (Qty: 5)",
+    "date": "2025-09-08 14:10"
+  }
+]

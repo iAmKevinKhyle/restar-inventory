@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Total Products",
+    "value": 124,
+    "icon": "ShoppingCartOutlined",
+    "color": "#e6f7ff"
+  },
+  {
+    "title": "Categories",
+    "value": 8,
+    "icon": "AppstoreAddOutlined",
+    "color": "#f6ffed"
+  },
+  {
+    "title": "Stock In",
+    "value": 560,
+    "icon": "StockOutlined",
+    "color": "#f9f0ff"
+  },
+  {
+    "title": "Suppliers",
+    "value": 15,
+    "icon": "TruckOutlined",
+    "color": "#fff7e6"
+  },
+  {
+    "title": "Reports Generated",
+    "value": 32,
+    "icon": "FileDoneOutlined",
+    "color": "#fff0f6"
+  },
+  {
+    "title": "Low Stock Items",
+    "value": 5,
+    "icon": "WarningOutlined",
+    "color": "#fffbe6"
+  }
+]

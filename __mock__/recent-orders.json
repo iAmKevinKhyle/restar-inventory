@@ -1,0 +1,7 @@
+[
+  { "id": 1, "supplier": "Supplier A", "status": "Delivered", "date": "2025-09-09" },
+  { "id": 2, "supplier": "Supplier B", "status": "Pending", "date": "2025-09-08" },
+  { "id": 3, "supplier": "Supplier C", "status": "Shipped", "date": "2025-09-08" },
+  { "id": 4, "supplier": "Supplier D", "status": "Cancelled", "date": "2025-09-07" },
+  { "id": 5, "supplier": "Supplier E", "status": "Delivered", "date": "2025-09-07" }
+]

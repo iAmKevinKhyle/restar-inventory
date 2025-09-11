@@ -1,0 +1,7 @@
+[
+  { "id": 1, "type": "In", "product": "Laptop", "qty": 10, "date": "2025-09-09" },
+  { "id": 2, "type": "Out", "product": "Mouse", "qty": 5, "date": "2025-09-09" },
+  { "id": 3, "type": "In", "product": "Keyboard", "qty": 12, "date": "2025-09-08" },
+  { "id": 4, "type": "Out", "product": "Monitor", "qty": 2, "date": "2025-09-08" },
+  { "id": 5, "type": "In", "product": "Printer", "qty": 7, "date": "2025-09-07" }
+]

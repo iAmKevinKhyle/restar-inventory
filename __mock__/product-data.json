@@ -1,0 +1,10 @@
+[
+  { "name": "Product A", "sales": 400 },
+  { "name": "Product B", "sales": 300 },
+  { "name": "Product C", "sales": 200 },
+  { "name": "Product D", "sales": 278 },
+  { "name": "Product E", "sales": 189 },
+  { "name": "Product F", "sales": 239 },
+  { "name": "Product G", "sales": 349 },
+  { "name": "Product H", "sales": 149 }
+]
