@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+.out-of-stock {
+  color: red;
+  font-weight: bold;
+}
+
+.low-stock {
+  color: orange ;
+  font-weight: bold;
+}
+
+.expiring {
+  color: blue;
+  font-weight: bold;
+}
+
+.expired {
+  color: purple;
+  font-weight: bold;
+}

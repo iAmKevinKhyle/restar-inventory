@@ -12,7 +12,7 @@ import { getCategoryData } from "./../../api/getChartData";
 import { useFetch } from "../../hooks/useFetch";
 
 const CategoryDistribution = () => {
-  const { data, loading, error } = useFetch(getCategoryData, []);
+  const { data, loading, error } = useFetch(getCategoryData);
 
   if (loading)
     return <Skeleton.Node style={{ width: "100%", height: 300 }} active />;

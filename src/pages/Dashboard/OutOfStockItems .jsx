@@ -5,7 +5,7 @@ import { getProductAlert } from "../../api/getProductAlert";
 import { useFetch } from "../../hooks/useFetch";
 
 const OutOfStockItems = () => {
-  const { data, loading, error } = useFetch(getProductAlert, []);
+  const { data, loading, error } = useFetch(getProductAlert);
 
   const {
     token: { colorError, colorBgBase },

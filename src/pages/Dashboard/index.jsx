@@ -17,6 +17,7 @@ import SupplierContribution from "../../components/charts/SupplierContribution";
 import RecentUserActions from "./RecentUserActions";
 import RecentStockMovements from "./RecentStockMovements";
 import RecentOrders from "./RecentOrders";
+import PageHeader from "../../components/PageHeader";
 
 const Dashboard = () => {
   const {
@@ -25,7 +26,7 @@ const Dashboard = () => {
 
   return (
     <div className="p-6" style={{ backgroundColor: colorBorderSecondary }}>
-      <h1 className="text-3xl font-bold mb-6">Dashboard</h1>
+      <PageHeader title={"Dashboard"} />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
         <SummaryCards />
       </div>

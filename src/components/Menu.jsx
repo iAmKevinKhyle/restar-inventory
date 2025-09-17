@@ -6,7 +6,6 @@ import {
   StockOutlined,
   TruckOutlined,
   FileDoneOutlined,
-  SettingOutlined,
 } from "@ant-design/icons";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -27,7 +26,7 @@ const items = [
     icon: <AppstoreAddOutlined />,
   },
   {
-    label: "Stocks",
+    label: "Inventory Stocks",
     key: "/stocks",
     icon: <StockOutlined />,
     children: [
@@ -42,20 +41,15 @@ const items = [
     ],
   },
   {
-    label: "Suppliers",
-    key: "/suppliers",
+    label: "Delivery",
+    key: "/delivery",
     icon: <TruckOutlined />,
   },
   {
-    label: "Reports",
-    key: "/reports",
+    label: "Invoice",
+    key: "/invoice",
     icon: <FileDoneOutlined />,
-  },
-  {
-    label: "Settings",
-    key: "/settings",
-    icon: <SettingOutlined />,
-  },
+  }
 ];
 
 const MenuItems = ({ setDrawerVisible }) => {

@@ -2,7 +2,7 @@ import React from 'react'
 
 const StocksOut = () => {
   return (
-    <div>Stocks Out</div>
+    <div>StocksOut NEW</div>
   )
 }
 

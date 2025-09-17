@@ -16,7 +16,7 @@ import { getProductData } from './../../api/getChartData';
 import { useFetch } from "../../hooks/useFetch";
 
 const TopSellingProducts = () => {
-  const { data, loading, error } = useFetch(getProductData, []);
+  const { data, loading, error } = useFetch(getProductData);
 
   if (loading) return <Skeleton.Node style={{ width: "100%", height: 300 }} active />;
   if (error) return <Alert message={error.message} type="error" />;

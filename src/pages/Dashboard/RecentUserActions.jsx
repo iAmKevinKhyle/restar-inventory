@@ -3,7 +3,7 @@ import { getRecentActions } from "../../api/getRecentData";
 import { useFetch  } from "../../hooks/useFetch";
 
 const RecentUserActions = () => {
-  const { data, loading, error } = useFetch(getRecentActions, []);
+  const { data, loading, error } = useFetch(getRecentActions);
 
   if (loading) return <Skeleton.Node style={{ width: "100%", height: 300 }} active />;
   if (error) return <Alert message={error.message} type="error" />;

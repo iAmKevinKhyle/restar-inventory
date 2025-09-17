@@ -2,7 +2,7 @@ import React from 'react'
 
 const StocksIn = () => {
   return (
-    <div>Stocks In</div>
+    <div>StocksIn NEW</div>
   )
 }
 

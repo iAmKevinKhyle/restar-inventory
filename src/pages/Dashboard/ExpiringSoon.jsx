@@ -5,7 +5,7 @@ import { useFetch } from "../../hooks/useFetch";
 import { useMemo } from "react";
 
 const ExpiringSoon = () => {
-  const { data, loading, error } = useFetch(getProductAlert, []);
+  const { data, loading, error } = useFetch(getProductAlert);
 
   const {
     token: { colorPrimary, colorBgBase },

@@ -14,7 +14,7 @@ import { getStockData } from './../../api/getChartData';
 import { useFetch } from "../../hooks/useFetch";
 
 const StockMovementChart = () => {
-  const { data, loading, error } = useFetch(getStockData, []);
+  const { data, loading, error } = useFetch(getStockData);
 
   if (loading) return <Skeleton.Node style={{ width: "100%", height: 300 }} active />;
   if (error) return <Alert message={error.message} type="error" />

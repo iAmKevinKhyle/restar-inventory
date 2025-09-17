@@ -4,16 +4,14 @@ import { ConfigProvider, Layout, theme } from "antd";
 import Header from "./components/Header";
 import SideBar from "./components/SideBar";
 import CustomDrawer from "./components/Drawer";
-
 import Dashboard from "./pages/Dashboard/";
 import Products from "./pages/Products/";
 import Categories from "./pages/Categories/";
-import StocksIn from "./pages/StocksIn/";
-import StocksOut from "./pages/StocksOut/";
-import Reports from "./pages/Reports/";
-import Suppliers from "./pages/Suppliers/";
-import Settings from "./pages/Settings/";
+import StocksPage from "./pages/Stocks/";
+import Invoice from "./pages/Invoice/";
+import Delivery from "./pages/Delivery/";
 import ContentWrapper from "./components/ContentWrapper";
+import NotFound from './NotFound';
 
 function App() {
   const [darkTheme, setDarkTheme] = useState(true);
@@ -64,13 +62,16 @@ function App() {
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
 
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/products" element={<Products />} />
+            <Route path="/products/*" element={<Products />} />
             <Route path="/categories" element={<Categories />} />
-            <Route path="/stocks/in" element={<StocksIn />} />
-            <Route path="/stocks/out" element={<StocksOut />} />
-            <Route path="/suppliers" element={<Suppliers />} />
-            <Route path="/reports" element={<Reports />} />
-            <Route path="/settings" element={<Settings />} />
+            <Route path="/stocks/in" element={<StocksPage />} />
+            <Route path="/stocks/out" element={<StocksPage />} />
+            <Route path="/delivery" element={<Delivery />} />
+            <Route path="/invoice" element={<Invoice />} />
+
+            <Route path="/not-found" element={<NotFound />} />
+
+            <Route path="*" element={<Navigate to="/not-found" replace />} />
           </Routes>
         </ContentWrapper>
       </Layout>

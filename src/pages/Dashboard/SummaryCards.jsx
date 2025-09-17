@@ -13,7 +13,7 @@ import {
 } from "@ant-design/icons";
 
 const SummaryCards = () => {
-  const { data, loading, error } = useFetch(getSummary, []);
+  const { data, loading, error } = useFetch(getSummary);
 
   const {
     token: { colorBgBase, colorTextLabel },
