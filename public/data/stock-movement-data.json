@@ -1,0 +1,62 @@
+[
+  {
+    "transaction_id": "TXN001",
+    "datetime": "2025-09-01 10:15 AM",
+    "product_id": "P001",
+    "product": "Laptop Pro 15",
+    "quantity": 10,
+    "type": "in",
+    "reference_no": "PO-2025-001",
+    "party": "Tech Supplier Inc.",
+    "reason": "New stock",
+    "user": "Admin"
+  },
+  {
+    "transaction_id": "TXN002",
+    "datetime": "2025-09-02 2:45 PM",
+    "product_id": "P002",
+    "product": "Wireless Mouse",
+    "quantity": 5,
+    "type": "out",
+    "reference_no": "SO-2025-014",
+    "party": "Customer A",
+    "reason": "Sales order",
+    "user": "John Doe"
+  },
+  {
+    "transaction_id": "TXN003",
+    "datetime": "2025-09-03 9:20 AM",
+    "product_id": "P001",
+    "product": "Laptop Pro 15",
+    "quantity": 2,
+    "type": "out",
+    "reference_no": "SO-2025-020",
+    "party": "Customer B",
+    "reason": "Sales order",
+    "user": "Jane Smith"
+  },
+  {
+    "transaction_id": "TXN004",
+    "datetime": "2025-09-04 1:30 PM",
+    "product_id": "P003",
+    "product": "Mechanical Keyboard",
+    "quantity": 15,
+    "type": "in",
+    "reference_no": "PO-2025-003",
+    "party": "Keyboard World",
+    "reason": "Restock",
+    "user": "Admin"
+  },
+  {
+    "transaction_id": "TXN005",
+    "datetime": "2025-09-05 4:00 PM",
+    "product_id": "P002",
+    "product": "Wireless Mouse",
+    "quantity": 1,
+    "type": "out",
+    "reference_no": "ADJ-2025-001",
+    "party": "Inventory Adjustment",
+    "reason": "Damage",
+    "user": "John Doe"
+  }
+]

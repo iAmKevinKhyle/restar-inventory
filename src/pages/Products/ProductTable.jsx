@@ -6,8 +6,7 @@ import {
   Space,
   Select,
   Tag,
-  Popconfirm,
-  App,
+  Popconfirm
 } from "antd";
 import {
   SearchOutlined,
@@ -17,14 +16,13 @@ import {
   EditOutlined,
   DeleteOutlined,
   PlusOutlined,
-  MinusOutlined,
 } from "@ant-design/icons";
 import { getProducts } from "../../api/getProducts";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import PageHeader from "../../components/PageHeader";
 import StockAdjustmentModal from "./StockAdjustmentModal";
 import SummaryCards from "./SummaryCards";
-import ExportButton from './../../components/ExportButton';
+import ExportButton from "./../../components/ExportButton";
 
 const { Option } = Select;
 
@@ -34,7 +32,6 @@ const ProductTable = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchText, setSearchText] = useState(searchParams.get("search"));
-  const [modalType, setModalType] = useState(null);
   const [pagination, setPagination] = useState({
     current: parseInt(searchParams.get("page") || 1),
     pageSize: parseInt(searchParams.get("pageSize") || 6),
@@ -45,8 +42,6 @@ const ProductTable = () => {
     // supplier: undefined,
     status: searchParams.get("status"),
   });
-  const [recordId, setRecordId] = useState(null);
-  const { message } = App.useApp();
 
   const fetchData = async (params = {}, clean = false) => {
     setLoading(true);
@@ -126,23 +121,6 @@ const ProductTable = () => {
     fetchData(updatedPagination);
   };
 
-  const handleProductDelete = (id) => {
-    console.log(id);
-  };
-
-  const handleStockAdjust = (values) => {
-    message.success(
-      `Stock ${modalType === "in" ? "added" : "deducted"} successfully!`
-    );
-    console.log("Adjustment:", {
-      productId: recordId,
-      type: modalType,
-      ...values,
-    });
-    setModalType(null);
-    setRecordId(null);
-  };
-
   const columns = [
     {
       title: "Product ID",
@@ -170,31 +148,31 @@ const ProductTable = () => {
     //   dataIndex: "supplier",
     //   key: "supplier",
     // },
-    {
-      title: "Quantity in Stock",
-      dataIndex: "quantity",
-      key: "quantity",
-      render: (qty, record) => (
-        <Tag color={qty < record.reorder_level ? "red" : "blue"}>{qty}</Tag>
-      ),
-    },
+    // {
+    //   title: "Quantity in Stock",
+    //   dataIndex: "quantity",
+    //   key: "quantity",
+    //   render: (qty, record) => (
+    //     <Tag color={qty < record.reorder_level ? "red" : "blue"}>{qty}</Tag>
+    //   ),
+    // },
     {
       title: "Unit of Measure",
       dataIndex: "unit",
       key: "unit",
     },
-    {
-      title: "Cost Price",
-      dataIndex: "cost_price",
-      key: "cost_price",
-      render: (value) => `₱${value.toFixed(2)}`,
-    },
-    {
-      title: "Selling Price",
-      dataIndex: "selling_price",
-      key: "selling_price",
-      render: (value) => `₱${value.toFixed(2)}`,
-    },
+    // {
+    //   title: "Cost Price",
+    //   dataIndex: "cost_price",
+    //   key: "cost_price",
+    //   render: (value) => `₱${value.toFixed(2)}`,
+    // },
+    // {
+    //   title: "Selling Price",
+    //   dataIndex: "selling_price",
+    //   key: "selling_price",
+    //   render: (value) => `₱${value.toFixed(2)}`,
+    // },
     {
       title: "Reorder Level",
       dataIndex: "reorder_level",
@@ -204,20 +182,9 @@ const ProductTable = () => {
       title: "Status",
       key: "status",
       render: (_, record) => {
-        if (record.quantity === 0) return <Tag color="red">Out of Stock</Tag>;
-        if (record.quantity < record.reorder_level)
-          return <Tag color="orange">Low Stock</Tag>;
-
-        if (record.expiry_date) {
-          const today = new Date();
-          const expiry = new Date(record.expiry_date);
-          const diffDays = (expiry - today) / (1000 * 60 * 60 * 24);
-
-          if (diffDays < 0) return <Tag color="red">Expired</Tag>;
-          if (diffDays <= 7) return <Tag color="gold">Near Expiry</Tag>;
-        }
-
-        return <Tag color="green">Available</Tag>;
+        if (record.status === "Active")
+          return <Tag color="green">{record.status}</Tag>;
+        return <Tag color="red">{record.status}</Tag>;
       },
     },
     {
@@ -245,49 +212,6 @@ const ProductTable = () => {
             }}
           >
             Edit
-          </Button>
-          <Popconfirm
-            title={`Are you sure you want to delete ${record.name}?`}
-            onConfirm={(e) => {
-              e?.stopPropagation();
-              handleProductDelete(record.product_id);
-            }}
-            onCancel={(e) => e.stopPropagation()}
-            okText="Yes"
-            cancelText="No"
-          >
-            <Button
-              icon={<DeleteOutlined />}
-              size="small"
-              danger
-              onClick={(e) => e.stopPropagation()}
-            >
-              Delete
-            </Button>
-          </Popconfirm>
-          <Button
-            icon={<PlusOutlined />}
-            size="small"
-            type="dashed"
-            onClick={(e) => {
-              e.stopPropagation();
-              setModalType("in");
-              setRecordId(record.product_id);
-            }}
-          >
-            Stock In
-          </Button>
-          <Button
-            icon={<MinusOutlined />}
-            size="small"
-            type="dashed"
-            onClick={(e) => {
-              e.stopPropagation();
-              setModalType("out");
-              setRecordId(record.product_id);
-            }}
-          >
-            Stock Out
           </Button>
         </Space>
       ),
@@ -323,7 +247,10 @@ const ProductTable = () => {
             Add New Product
           </Button>
 
-          <ExportButton onExportExcel={() => console.log("Excel")} onExportPDF={() => console.log("PDF")} />
+          <ExportButton
+            onExportExcel={() => console.log("Excel")}
+            onExportPDF={() => console.log("PDF")}
+          />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2 w-full">
@@ -385,7 +312,22 @@ const ProductTable = () => {
         pagination={{
           ...pagination,
           showSizeChanger: true,
-          pageSizeOptions: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "50", "100"],
+          pageSizeOptions: [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "15",
+            "20",
+            "50",
+            "100",
+          ],
           onShowSizeChange: (current, size) => {
             setPagination({
               ...pagination,
@@ -396,7 +338,7 @@ const ProductTable = () => {
             setSearchParams({
               ...searchParams,
               page: 1,
-              pageSize: size
+              pageSize: size,
             });
 
             fetchData({ current: 1, pageSize: size });
@@ -405,40 +347,9 @@ const ProductTable = () => {
         loading={loading}
         onChange={handleTableChange}
         scroll={{ x: "max-content" }}
-        className="whitespace-nowrap cursor-pointer"
+        className="whitespace-nowrap"
         size="large"
-        onRow={(record) => ({
-          onClick: () => navigate(`/products/${record.product_id}/view`),
-        })}
-        rowClassName={(record) => {
-          if (record.quantity === 0) return "out-of-stock";
-          if (record.quantity < record.reorder_level) return "low-stock";
-
-          if (record.expiry_date) {
-            const today = new Date();
-            const expiry = new Date(record.expiry_date);
-            const diffDays = (expiry - today) / (1000 * 60 * 60 * 24);
-
-            if (diffDays < 0) return "expired";
-            if (diffDays <= 7) return "expiring";
-          }
-
-          return "";
-        }}
       />
-
-      {modalType && (
-        <StockAdjustmentModal
-          open={!!modalType}
-          onCancel={() => {
-            setModalType(null);
-            setRecordId(null);
-          }}
-          onSubmit={handleStockAdjust}
-          type={modalType}
-          product={recordId}
-        />
-      )}
     </>
   );
 };

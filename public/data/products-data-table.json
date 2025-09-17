@@ -47,12 +47,12 @@
     "name": "Bear Brand Milk Powder 1kg",
     "category": "Dairy",
     "supplier": "Nestle Philippines",
-    "quantity": 18,
+    "quantity": 0,
     "unit": "bag",
     "cost_price": 280.0,
     "selling_price": 350.0,
     "reorder_level": 20,
-    "status": "Active",
+    "status": "Inactive",
     "expiry_date": "2025-11-1"
   },
   {
@@ -66,7 +66,7 @@
     "cost_price": 15.0,
     "selling_price": 20.0,
     "reorder_level": 30,
-    "status": "Discontinued",
+    "status": "Inactive",
     "expiry_date": "2025-11-1"
   },
   {
@@ -166,12 +166,12 @@
     "name": "Del Monte Pineapple Juice 1L",
     "category": "Beverages",
     "supplier": "Del Monte Philippines",
-    "quantity": 12,
+    "quantity": 0,
     "unit": "tetra pack",
     "cost_price": 85.0,
     "selling_price": 110.0,
     "reorder_level": 20,
-    "status": "Active"
+    "status": "Inactive"
   },
   {
     "product_id": "P014",
@@ -205,12 +205,12 @@
     "name": "Rebisco Sandwich 30g",
     "category": "Snacks",
     "supplier": "Republic Biscuit Corp.",
-    "quantity": 500,
+    "quantity": 0,
     "unit": "pcs",
     "cost_price": 5.0,
     "selling_price": 8.0,
     "reorder_level": 60,
-    "status": "Active"
+    "status": "Inactive"
   },
   {
     "product_id": "P017",
@@ -231,12 +231,12 @@
     "name": "C2 Green Tea 500ml",
     "category": "Beverages",
     "supplier": "URC",
-    "quantity": 90,
+    "quantity": 0,
     "unit": "bottle",
     "cost_price": 18.0,
     "selling_price": 25.0,
     "reorder_level": 15,
-    "status": "Active"
+    "status": "Inactive"
   },
   {
     "product_id": "P019",
@@ -257,12 +257,12 @@
     "name": "Oishi Prawn Crackers 60g Oishi Prawn Crackers 60g Oishi Prawn Crackers 60g Oishi Prawn Crackers 60g",
     "category": "Snacks",
     "supplier": "Liwayway Marketing Corp.",
-    "quantity": 60,
+    "quantity": 0,
     "unit": "pcs",
     "cost_price": 10.0,
     "selling_price": 15.0,
     "reorder_level": 20,
-    "status": "Active"
+    "status": "Inactive"
   },
   {
     "product_id": "P021",
@@ -322,12 +322,12 @@
     "name": "Gardenia Classic Bread Loaf",
     "category": "Bakery",
     "supplier": "Gardenia Bakeries",
-    "quantity": 30,
+    "quantity": 0,
     "unit": "loaf",
     "cost_price": 60.0,
     "selling_price": 80.0,
     "reorder_level": 10,
-    "status": "Active",
+    "status": "Inactive",
     "expiry_date": "2025-09-15"
   }
 ]

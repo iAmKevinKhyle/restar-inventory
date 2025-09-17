@@ -16,7 +16,7 @@
 
 // Simulated
 export const getProduct = async ({ id }) => {
-  const res = await fetch("../../__mock__/products-data-table.json");
+  const res = await fetch("/data/products-data-table.json");
   if (!res.ok) {
     throw new Error(`No Product Found!`);
   }

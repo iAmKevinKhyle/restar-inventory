@@ -64,6 +64,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/products/*" element={<Products />} />
             <Route path="/categories" element={<Categories />} />
+            <Route path="/stocks" element={<StocksPage />} />
             <Route path="/stocks/in" element={<StocksPage />} />
             <Route path="/stocks/out" element={<StocksPage />} />
             <Route path="/delivery" element={<Delivery />} />

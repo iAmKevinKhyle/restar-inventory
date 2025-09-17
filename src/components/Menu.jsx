@@ -27,9 +27,12 @@ const items = [
   },
   {
     label: "Inventory Stocks",
-    key: "/stocks",
     icon: <StockOutlined />,
     children: [
+      {
+        label: "All Movements",
+        key: "/stocks",
+      },
       {
         label: "Stock In",
         key: "/stocks/in",

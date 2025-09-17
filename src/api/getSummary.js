@@ -14,7 +14,7 @@ export const getSummary = async () => {
 
 export const getProductSummaryCount = async () => {
   try {
-    const response = await axios.get("../../__mock__/products-data-table.json");
+    const response = await axios.get("/data/products-data-table.json");
     const data = response.data;
     const today = new Date();
     

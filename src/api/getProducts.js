@@ -35,7 +35,7 @@ export const getProducts = async ({
   search = "",
   filters = {},
 }) => {
-  const res = await fetch("../../__mock__/products-data-table.json");
+  const res = await fetch("/data/products-data-table.json");
   if (!res.ok) {
     throw new Error("Failed to fetch products");
   }
