@@ -5,13 +5,17 @@ import { useNavigate } from "react-router-dom";
 const PageHeader = ({ title, showBack = false }) => {
   const navigate = useNavigate();
 
+  const handleBackButton = () => {
+    navigate(-1);
+  } 
+
   return (
     <div className="flex items-center gap-4 mb-6">
       {showBack && (
         <Button
           type="text"
           icon={<ArrowLeftOutlined />}
-          onClick={() => navigate(-1)}
+          onClick={handleBackButton}
           className="flex items-center"
         >
           Back

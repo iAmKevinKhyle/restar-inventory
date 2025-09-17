@@ -7,7 +7,7 @@ const ThemeButton = ({ toggleTheme, darkTheme}) => {
   } = theme.useToken();
 
   return (
-    <div className='absolute bottom-4 w-full flex justify-center'>
+    <div className='w-full flex justify-center'>
       <Button onClick={toggleTheme} className='w-[90%]' style={{ background: colorBgBase, color: colorTextBase }} >
         {darkTheme ? <HiOutlineSun className='text-xl' /> : <HiOutlineMoon className='text-xl' />}
       </Button>

@@ -10,7 +10,7 @@ const getStocksMovementData = async () => {
 
     await new Promise((response) => setTimeout(response, 2500));
 
-    return await response.json();
+    return response.json();
   } catch (error) {
     console.error("Error loading stock movement data:", error);
     return [];

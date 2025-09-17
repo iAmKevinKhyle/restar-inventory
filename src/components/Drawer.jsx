@@ -8,11 +8,13 @@ const CustomDrawer = ({
   setDrawerVisible,
   drawerVisible,
   toggleTheme,
-  darkTheme
+  darkTheme,
 }) => {
   const {
-    token: { colorBgBase, colorTextBase, colorIcon },
+    token: { colorBgBase, colorTextBase, colorIcon, colorBorderSecondary },
   } = theme.useToken();
+
+  const footerHeight = 64; // reserve space for ThemeButton
 
   return (
     <>
@@ -21,7 +23,13 @@ const CustomDrawer = ({
         type="text"
         icon={<MenuOutlined />}
         onClick={() => setDrawerVisible(true)}
-        style={{ position: "absolute", top: 16, left: 16, zIndex: 1000, color: colorIcon }}
+        style={{
+          position: "absolute",
+          top: 16,
+          left: 16,
+          zIndex: 1000,
+          color: colorIcon,
+        }}
       />
 
       {/* Drawer */}
@@ -37,16 +45,42 @@ const CustomDrawer = ({
             padding: 0,
             background: colorBgBase,
             color: colorTextBase,
+            display: "flex",
+            flexDirection: "column",
+            height: "100%",
+            borderRight: "1px solid " + colorBorderSecondary,
           },
           header: {
             background: colorBgBase,
             color: colorTextBase,
             borderBottom: "none",
+            borderRight: "1px solid " + colorBorderSecondary,
           },
         }}
       >
-        <Menu setDrawerVisible={setDrawerVisible} />
-        <ThemeButton toggleTheme={toggleTheme} darkTheme={darkTheme} />
+        {/* Scrollable Menu area */}
+        <div
+          style={{
+            flex: "1 1 auto",
+            overflowY: "auto",
+            minHeight: 0,
+            paddingBottom: footerHeight,
+          }}
+        >
+          <Menu setDrawerVisible={setDrawerVisible} />
+        </div>
+
+        {/* Footer with Theme Button */}
+        <div
+          style={{
+            flex: "0 0 auto",
+            borderTop: "1px solid " + colorBorderSecondary,
+            padding: 12,
+            background: colorBgBase,
+          }}
+        >
+          <ThemeButton toggleTheme={toggleTheme} darkTheme={darkTheme} />
+        </div>
       </Drawer>
     </>
   );

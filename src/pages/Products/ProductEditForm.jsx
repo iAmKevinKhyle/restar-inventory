@@ -220,7 +220,7 @@ const ProductEditForm = () => {
             </Button>
             <Button
               style={{ marginLeft: 8 }}
-              onClick={() => navigate("/products")}
+              onClick={() => navigate(-1)}
             >
               Cancel
             </Button>

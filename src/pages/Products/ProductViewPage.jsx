@@ -29,7 +29,6 @@ const ProductViewPage = () => {
   return (
     <>
       <PageHeader title={"View Product"} showBack />
-
       <Card title={`${data.data.name} - Product Details`} variant={false}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="flex justify-center">

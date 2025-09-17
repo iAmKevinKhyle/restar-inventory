@@ -1,12 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  Table,
-  Input,
-  Button,
-  Space,
-  Select,
-  Tag,
-} from "antd";
+import { Table, Input, Button, Space, Select, Popconfirm, Tag } from "antd";
 import {
   SearchOutlined,
   FilterOutlined,
@@ -14,16 +7,16 @@ import {
   EyeOutlined,
   EditOutlined,
   PlusOutlined,
+  DeleteOutlined,
 } from "@ant-design/icons";
-import { getProducts } from "../../api/getProducts";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import PageHeader from "../../components/PageHeader";
-import SummaryCards from "./SummaryCards";
 import ExportButton from "./../../components/ExportButton";
+import { getUsers } from "./../../api/getUsers";
 
 const { Option } = Select;
 
-const ProductTable = () => {
+const UsersTable = () => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [data, setData] = useState([]);
@@ -35,15 +28,14 @@ const ProductTable = () => {
     total: data.total || 0,
   });
   const [filters, setFilters] = useState({
-    category: searchParams.get("category"),
-    // supplier: undefined,
+    role: searchParams.get("role"),
     status: searchParams.get("status"),
   });
 
   const fetchData = async (params = {}, clean = false) => {
     setLoading(true);
     try {
-      const res = await getProducts({
+      const res = await getUsers({
         page: params.current || pagination.current,
         pageSize: params.pageSize || pagination.pageSize,
         search: clean ? "" : searchText,
@@ -58,7 +50,7 @@ const ProductTable = () => {
         total: res.total,
       });
     } catch (err) {
-      console.error("Error fetching products:", err);
+      console.error("Error fetching users:", err);
     } finally {
       setLoading(false);
     }
@@ -69,7 +61,7 @@ const ProductTable = () => {
       ...searchParams,
       pageSize: pagination.pageSize || 6,
       search: searchText,
-      category: filters.category || "",
+      role: filters.role || "",
       status: filters.status || "",
     });
     fetchData({ current: 1, pageSize: pagination.pageSize });
@@ -80,7 +72,7 @@ const ProductTable = () => {
       ...searchParams,
       pageSize: pagination.pageSize || 6,
       search: searchText || "",
-      category: filters.category || "",
+      role: filters.role || "",
       status: filters.status || "",
     });
     fetchData({ current: 1, pageSize: pagination.pageSize });
@@ -96,7 +88,7 @@ const ProductTable = () => {
   };
 
   const handleTransition = () => {
-    navigate("/products/add");
+    navigate("/users/add");
   };
 
   const handleTableChange = (newPagination) => {
@@ -111,77 +103,54 @@ const ProductTable = () => {
       page: updatedPagination.current,
       pageSize: updatedPagination.pageSize,
       search: searchText || "",
-      category: filters.category || "",
+      role: filters.role || "",
       status: filters.status || "",
     });
 
     fetchData(updatedPagination);
   };
 
+  const handleUserDelete = (id) => {
+    console.log(id);
+  };
+
   const columns = [
     {
-      title: "Product ID",
-      dataIndex: "product_id",
-      key: "product_id",
+      title: "User ID",
+      dataIndex: "id",
+      key: "id",
     },
     {
-      title: "Barcode",
-      dataIndex: "barcode",
-      key: "barcode",
+      title: "Username",
+      dataIndex: "username",
+      key: "username",
     },
     {
-      title: "Product Name",
-      dataIndex: "name",
-      key: "name",
+      title: "Full Name",
+      dataIndex: "fullName",
+      key: "fullName",
       className: "overflow-hidden text-ellipsis max-w-sm",
     },
     {
-      title: "Category",
-      dataIndex: "category",
-      key: "category",
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
+      className: "overflow-hidden text-ellipsis max-w-sm",
     },
-    // {
-    //   title: "Supplier",
-    //   dataIndex: "supplier",
-    //   key: "supplier",
-    // },
-    // {
-    //   title: "Quantity in Stock",
-    //   dataIndex: "quantity",
-    //   key: "quantity",
-    //   render: (qty, record) => (
-    //     <Tag color={qty < record.reorder_level ? "red" : "blue"}>{qty}</Tag>
-    //   ),
-    // },
     {
-      title: "Unit of Measure",
-      dataIndex: "unit",
-      key: "unit",
-    },
-    // {
-    //   title: "Cost Price",
-    //   dataIndex: "cost_price",
-    //   key: "cost_price",
-    //   render: (value) => `₱${value.toFixed(2)}`,
-    // },
-    // {
-    //   title: "Selling Price",
-    //   dataIndex: "selling_price",
-    //   key: "selling_price",
-    //   render: (value) => `₱${value.toFixed(2)}`,
-    // },
-    {
-      title: "Reorder Level",
-      dataIndex: "reorder_level",
-      key: "reorder_level",
+      title: "Role",
+      dataIndex: "role",
+      key: "role",
     },
     {
       title: "Status",
       key: "status",
       render: (_, record) => {
         if (record.status === "Active")
-          return <Tag color="green">{record.status}</Tag>;
-        return <Tag color="red">{record.status}</Tag>;
+          return <Tag color="success">{record.status}</Tag>;
+        if (record.status === "Suspended")
+          return <Tag color="error">{record.status}</Tag>;
+        return <Tag color="default">{record.status}</Tag>;
       },
     },
     {
@@ -194,7 +163,7 @@ const ProductTable = () => {
             size="small"
             onClick={(e) => {
               e.stopPropagation();
-              navigate(`/products/${record.product_id}/view`);
+              navigate(`/users/${record.username}/view`);
             }}
           >
             View
@@ -205,11 +174,30 @@ const ProductTable = () => {
             type="primary"
             onClick={(e) => {
               e.stopPropagation();
-              navigate(`/products/${record.product_id}/edit`);
+              navigate(`/users/${record.username}/edit`);
             }}
           >
             Edit
           </Button>
+          <Popconfirm
+            title={`Are you sure you want to delete ${record.username}?`}
+            onConfirm={(e) => {
+              e?.stopPropagation();
+              handleUserDelete(record.username);
+            }}
+            onCancel={(e) => e.stopPropagation()}
+            okText="Yes"
+            cancelText="No"
+          >
+            <Button
+              icon={<DeleteOutlined />}
+              size="small"
+              danger
+              onClick={(e) => e.stopPropagation()}
+            >
+              Delete
+            </Button>
+          </Popconfirm>
         </Space>
       ),
     },
@@ -222,11 +210,11 @@ const ProductTable = () => {
 
   return (
     <>
-      <PageHeader title={"Products"} />
+      <PageHeader title={"Users"} />
       <Space direction="vertical" size="small" className="mb-4 w-full">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-2 w-full">
           <Input.Search
-            placeholder="Search by Name / SKU / Barcode"
+            placeholder="Search by Username / Full Name / Email"
             allowClear
             enterButton={<SearchOutlined title="Search" />}
             value={searchText}
@@ -241,7 +229,7 @@ const ProductTable = () => {
             onClick={handleTransition}
             className="w-full"
           >
-            Add New Product
+            Add New User
           </Button>
 
           <ExportButton
@@ -252,15 +240,15 @@ const ProductTable = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2 w-full">
           <Select
-            placeholder="Filter by Category"
+            placeholder="Filter by Role"
             allowClear
-            value={filters.category}
-            onChange={(val) => setFilters({ ...filters, category: val })}
+            value={filters.role}
+            onChange={(val) => setFilters({ ...filters, role: val })}
             className="w-full"
           >
-            <Option value="Electronics">Electronics</Option>
-            <Option value="Clothing">Clothing</Option>
-            <Option value="Food">Food</Option>
+            <Option value="Admin">Admin</Option>
+            <Option value="Manager">Manager</Option>
+            <Option value="Cashier">Cashier</Option>
           </Select>
 
           <Select
@@ -271,9 +259,8 @@ const ProductTable = () => {
             className="w-full"
           >
             <Option value="Active">Active</Option>
-            <Option value="Low Stock">Low Stock</Option>
-            <Option value="Out of Stock">Out of Stock</Option>
-            <Option value="Discontinued">Discontinued</Option>
+            <Option value="Inactive">Inactive</Option>
+            <Option value="Suspended">Suspended</Option>
           </Select>
 
           <Button
@@ -296,16 +283,10 @@ const ProductTable = () => {
         </div>
       </Space>
 
-      <Space direction="vertical" size="small" className="mb-4 w-full">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 w-[100%]">
-          <SummaryCards />
-        </div>
-      </Space>
-
       <Table
         columns={columns}
         dataSource={data}
-        rowKey="product_id"
+        rowKey="id"
         pagination={{
           ...pagination,
           showSizeChanger: true,
@@ -351,4 +332,4 @@ const ProductTable = () => {
   );
 };
 
-export default ProductTable;
+export default UsersTable;

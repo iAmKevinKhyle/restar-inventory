@@ -6,6 +6,7 @@ import {
   StockOutlined,
   TruckOutlined,
   FileDoneOutlined,
+  UsergroupAddOutlined,
 } from "@ant-design/icons";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -45,14 +46,45 @@ const items = [
   },
   {
     label: "Delivery",
-    key: "/delivery",
     icon: <TruckOutlined />,
+    children: [
+      {
+        label: "Create Delivery",
+        key: "/delivery/create",
+      },
+      {
+        label: "Initial",
+        key: "/delivery/initial",
+      },
+      {
+        label: "In-Transit",
+        key: "/delivery/in-transit",
+      },
+      {
+        label: "Delivered",
+        key: "/delivery/delivered",
+      }
+    ]
   },
   {
     label: "Invoice",
     key: "/invoice",
     icon: <FileDoneOutlined />,
-  }
+  },
+  {
+    label: "Users",
+    icon: <UsergroupAddOutlined />,
+    children: [
+      {
+        label: "List of Users",
+        key: "/users"
+      },
+      {
+        label: "Add User",
+        key: "/users/add",
+      },
+    ],
+  },
 ];
 
 const MenuItems = ({ setDrawerVisible }) => {
@@ -66,7 +98,7 @@ const MenuItems = ({ setDrawerVisible }) => {
   const navigateKey = (e) => {
     navigate(e.key);
     if (setDrawerVisible) setDrawerVisible(false);
-  }
+  };
 
   const currentPath =
     location.pathname === "/" || location.pathname === ""
@@ -81,11 +113,11 @@ const MenuItems = ({ setDrawerVisible }) => {
       className="mt-8 flex flex-col gap-2 relative"
       items={items}
       onClick={navigateKey}
-      style={{ 
+      style={{
         background: colorBgBase,
         color: colorTextBase,
         borderRight: "none",
-       }}
+      }}
     />
   );
 };

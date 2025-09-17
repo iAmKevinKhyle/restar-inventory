@@ -17,6 +17,8 @@ const SideBar = ({
     token: { colorBgBase, colorTextBase, colorBorderSecondary },
   } = theme.useToken();
 
+  const footerHeight = 64;
+
   return (
     <Sider
       collapsed={collapsed}
@@ -32,18 +34,43 @@ const SideBar = ({
         position: "fixed",
         top: 0,
         left: 0,
-        bottom: 0, 
+        bottom: 0,
         height: "100vh",
         zIndex: 1000,
-        display: isMobile ? "none" : "block",
+        display: isMobile ? "none" : "flex",
+        flexDirection: "column",
         background: colorBgBase,
         color: colorTextBase,
         borderRight: "1px solid " + colorBorderSecondary,
       }}
     >
-      <Logo collapsed={collapsed} />
-      <Menu />
-      <ThemeButton darkTheme={darkTheme} toggleTheme={toggleTheme} />
+      <div style={{ display: "flex", flexDirection: "column", height: "100%", width: "100%" }}>
+        <div style={{ flex: "0 0 auto" }}>
+          <Logo collapsed={collapsed} />
+        </div>
+
+        <div
+          style={{
+            flex: "1 1 auto",
+            overflowY: "auto",
+            minHeight: 0,
+            paddingBottom: footerHeight,
+          }}
+        >
+          <Menu />
+        </div>
+
+        <div
+          style={{
+            flex: "0 0 auto",
+            borderTop: "1px solid " + colorBorderSecondary,
+            padding: 12,
+            background: colorBgBase,
+          }}
+        >
+          <ThemeButton darkTheme={darkTheme} toggleTheme={toggleTheme} />
+        </div>
+      </div>
     </Sider>
   );
 };
