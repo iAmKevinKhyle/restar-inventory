@@ -53,15 +53,15 @@ const items = [
         key: "/delivery/create",
       },
       {
-        label: "Initial",
+        label: "Delivery Initial",
         key: "/delivery/initial",
       },
       {
-        label: "In-Transit",
+        label: "Delivery In-Transit",
         key: "/delivery/in-transit",
       },
       {
-        label: "Delivered",
+        label: "Delivery Delivered",
         key: "/delivery/delivered",
       }
     ]

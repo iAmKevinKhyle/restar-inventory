@@ -3,7 +3,7 @@ import { Layout } from "antd";
 const { Content } = Layout;
 
 const ContentWrapper = ({ collapsed, isMobile, children }) => {
-  const siderWidth = collapsed ? 80 : 200;
+  const siderWidth = collapsed ? 80 : 225;
   return (
     <Content
       style={{

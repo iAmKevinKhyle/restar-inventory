@@ -25,6 +25,7 @@ const SideBar = ({
       trigger={null}
       collapsible
       breakpoint="lg"
+      width={225}
       collapsedWidth={isMobile ? 0 : 80}
       onBreakpoint={(broken) => {
         setIsMobile(broken);
