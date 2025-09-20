@@ -1,0 +1,263 @@
+[
+  {
+    "id": "DEL-001",
+    "customer": "Acme Corp",
+    "products": [
+      { "product": "Coca Cola 1L", "quantity": 10 },
+      { "product": "Nescafe Classic 100g", "quantity": 5 }
+    ],
+    "date": "2025-09-01",
+    "driver": "John Driver",
+    "status": "Initial"
+  },
+  {
+    "id": "DEL-002",
+    "customer": "SM Supermarket",
+    "products": [
+      { "product": "Lucky Me Pancit Canton", "quantity": 50 }
+    ],
+    "date": "2025-09-02",
+    "driver": "Maria Courier",
+    "status": "Initial"
+  },
+  {
+    "id": "DEL-003",
+    "customer": "7-Eleven",
+    "products": [
+      { "product": "Coca Cola 1L", "quantity": 30 }
+    ],
+    "date": "2025-09-03",
+    "driver": "Mike Transport",
+    "status": "Intransit"
+  },
+  {
+    "id": "DEL-004",
+    "customer": "Puregold",
+    "products": [
+      { "product": "Nescafe Classic 100g", "quantity": 20 },
+      { "product": "Lucky Me Pancit Canton", "quantity": 40 }
+    ],
+    "date": "2025-09-03",
+    "driver": "John Driver",
+    "status": "Delivered"
+  },
+  {
+    "id": "DEL-005",
+    "customer": "Robinsons",
+    "products": [
+      { "product": "Coca Cola 1L", "quantity": 25 }
+    ],
+    "date": "2025-09-04",
+    "driver": "Maria Courier",
+    "status": "Intransit"
+  },
+  {
+    "id": "DEL-006",
+    "customer": "Mercury Drug",
+    "products": [
+      { "product": "Nescafe Classic 100g", "quantity": 15 }
+    ],
+    "date": "2025-09-05",
+    "driver": "Mike Transport",
+    "status": "Initial"
+  },
+  {
+    "id": "DEL-007",
+    "customer": "WalterMart",
+    "products": [
+      { "product": "Lucky Me Pancit Canton", "quantity": 80 }
+    ],
+    "date": "2025-09-06",
+    "driver": "John Driver",
+    "status": "Delivered"
+  },
+  {
+    "id": "DEL-008",
+    "customer": "Landers",
+    "products": [
+      { "product": "Coca Cola 1L", "quantity": 12 },
+      { "product": "Nescafe Classic 100g", "quantity": 6 }
+    ],
+    "date": "2025-09-07",
+    "driver": "Maria Courier",
+    "status": "Initial"
+  },
+  {
+    "id": "DEL-009",
+    "customer": "S&R",
+    "products": [
+      { "product": "Lucky Me Pancit Canton", "quantity": 120 }
+    ],
+    "date": "2025-09-07",
+    "driver": "Mike Transport",
+    "status": "Intransit"
+  },
+  {
+    "id": "DEL-010",
+    "customer": "Mini Stop",
+    "products": [
+      { "product": "Coca Cola 1L", "quantity": 18 }
+    ],
+    "date": "2025-09-08",
+    "driver": "John Driver",
+    "status": "Delivered"
+  },
+  {
+    "id": "DEL-011",
+    "customer": "FamilyMart",
+    "products": [
+      { "product": "Nescafe Classic 100g", "quantity": 25 }
+    ],
+    "date": "2025-09-08",
+    "driver": "Maria Courier",
+    "status": "Initial"
+  },
+  {
+    "id": "DEL-012",
+    "customer": "SM Hypermarket",
+    "products": [
+      { "product": "Lucky Me Pancit Canton", "quantity": 70 },
+      { "product": "Coca Cola 1L", "quantity": 15 }
+    ],
+    "date": "2025-09-09",
+    "driver": "Mike Transport",
+    "status": "Delivered"
+  },
+  {
+    "id": "DEL-013",
+    "customer": "Rustan’s",
+    "products": [
+      { "product": "Nescafe Classic 100g", "quantity": 30 }
+    ],
+    "date": "2025-09-10",
+    "driver": "John Driver",
+    "status": "Intransit"
+  },
+  {
+    "id": "DEL-014",
+    "customer": "Savemore",
+    "products": [
+      { "product": "Coca Cola 1L", "quantity": 22 },
+      { "product": "Lucky Me Pancit Canton", "quantity": 60 }
+    ],
+    "date": "2025-09-11",
+    "driver": "Maria Courier",
+    "status": "Delivered"
+  },
+  {
+    "id": "DEL-015",
+    "customer": "All Day Mart",
+    "products": [
+      { "product": "Nescafe Classic 100g", "quantity": 12 }
+    ],
+    "date": "2025-09-11",
+    "driver": "Mike Transport",
+    "status": "Initial"
+  },
+  {
+    "id": "DEL-016",
+    "customer": "SM Aura",
+    "products": [
+      { "product": "Lucky Me Pancit Canton", "quantity": 100 }
+    ],
+    "date": "2025-09-12",
+    "driver": "John Driver",
+    "status": "Intransit"
+  },
+  {
+    "id": "DEL-017",
+    "customer": "Shopwise",
+    "products": [
+      { "product": "Coca Cola 1L", "quantity": 16 },
+      { "product": "Nescafe Classic 100g", "quantity": 8 }
+    ],
+    "date": "2025-09-12",
+    "driver": "Maria Courier",
+    "status": "Delivered"
+  },
+  {
+    "id": "DEL-018",
+    "customer": "South Supermarket",
+    "products": [
+      { "product": "Lucky Me Pancit Canton", "quantity": 95 }
+    ],
+    "date": "2025-09-13",
+    "driver": "Mike Transport",
+    "status": "Initial"
+  },
+  {
+    "id": "DEL-019",
+    "customer": "Ever Supermarket",
+    "products": [
+      { "product": "Coca Cola 1L", "quantity": 40 }
+    ],
+    "date": "2025-09-14",
+    "driver": "John Driver",
+    "status": "Delivered"
+  },
+  {
+    "id": "DEL-020",
+    "customer": "Uniwide",
+    "products": [
+      { "product": "Nescafe Classic 100g", "quantity": 18 },
+      { "product": "Lucky Me Pancit Canton", "quantity": 30 }
+    ],
+    "date": "2025-09-14",
+    "driver": "Maria Courier",
+    "status": "Intransit"
+  },
+  {
+    "id": "DEL-021",
+    "customer": "Isetann",
+    "products": [
+      { "product": "Coca Cola 1L", "quantity": 28 }
+    ],
+    "date": "2025-09-15",
+    "driver": "Mike Transport",
+    "status": "Delivered"
+  },
+  {
+    "id": "DEL-022",
+    "customer": "Metro Gaisano",
+    "products": [
+      { "product": "Lucky Me Pancit Canton", "quantity": 85 }
+    ],
+    "date": "2025-09-15",
+    "driver": "John Driver",
+    "status": "Initial"
+  },
+  {
+    "id": "DEL-023",
+    "customer": "Robinsons Magnolia",
+    "products": [
+      { "product": "Coca Cola 1L", "quantity": 35 },
+      { "product": "Nescafe Classic 100g", "quantity": 10 }
+    ],
+    "date": "2025-09-16",
+    "driver": "Maria Courier",
+    "status": "Delivered"
+  },
+  {
+    "id": "DEL-024",
+    "customer": "WalterMart Makati",
+    "products": [
+      { "product": "Lucky Me Pancit Canton", "quantity": 40 }
+    ],
+    "date": "2025-09-16",
+    "driver": "Mike Transport",
+    "status": "Intransit"
+  },
+  {
+    "id": "DEL-025",
+    "customer": "Landers Alabang",
+    "products": [
+      { "product": "Coca Cola 1L", "quantity": 20 },
+      { "product": "Nescafe Classic 100g", "quantity": 12 },
+      { "product": "Nescafe Classic 1kg", "quantity": 5 },
+      { "product": "Lucky Me Pancit Canton", "quantity": 40 }
+    ],
+    "date": "2025-09-17",
+    "driver": "John Driver",
+    "status": "Initial"
+  }
+]

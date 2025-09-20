@@ -75,3 +75,22 @@ export const getProducts = async ({
     total,
   };
 };
+
+export const getAllProducts = async () => {
+  const res = await fetch("/data/products-data-table.json");
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch all products");
+  }
+
+  const allData = await res.json();
+
+  const total = allData.length;
+
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
+  return {
+    data: allData,
+    total,
+  };
+};
